@@ -16,8 +16,13 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+# bookstore/urls.py (raiz)
+from django.urls import path, re_path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    re_path(r"^bookstore/(?P<version>(v1|v2))/", include([
+        path("", include("product.urls")),
+        path("", include("order.urls")),
+    ])),
 ]
