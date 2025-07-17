@@ -17,6 +17,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 # Instala o Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
+# Instala as dependencias do Postgres
+RUN apt-get update && \
+    apt-get -y install libpq-dev gcc &&\
+    pip install psycopg2-binary
+
 # Adiciona o Poetry ao PATH
 ENV PATH="/root/.local/bin:$PATH"
 
