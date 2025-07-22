@@ -26,7 +26,11 @@ jobs:
         python -m pip install --upgrade poetry
 
     - name: Set environment variables
-      run: echo "DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]" >> $GITHUB_ENV
+  env:
+    DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"
+  run: |
+    echo "DJANGO_ALLOWED_HOSTS=$DJANGO_ALLOWED_HOSTS" >> $GITHUB_ENV
+
 
     - name: Install dependencies
       shell: bash
