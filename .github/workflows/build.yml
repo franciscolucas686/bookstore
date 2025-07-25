@@ -34,9 +34,9 @@ jobs:
         echo "DJANGO_ALLOWED_HOSTS=$DJANGO_ALLOWED_HOSTS" >> $GITHUB_ENV
         echo "SECRET_KEY=$SECRET_KEY" >> $GITHUB_ENV
 
-    - name: Install dependencies
+    - name: Install dependencies with dev packages
       shell: bash
-      run: poetry install
+      run: poetry install --with dev
 
     - name: Run tests
       run: poetry run python manage.py test
