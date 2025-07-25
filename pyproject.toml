@@ -1,19 +1,16 @@
-[project]
+[tool.poetry]
 name = "bookstore"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Francisco Lucas",email = "franciscolucas686@gmail.com"}
-]
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "pytest (>=8.4.1,<9.0.0)",
-    "django (>=5.2.4,<6.0.0)",
-    "djangorestframework (>=3.16.0,<4.0.0)"
-]
+description = "API Django com DRF"
+authors = ["Francisco Lucas <franciscolucas686@gmail.com>"]
 
-[tool.poetry]
+[tool.poetry.dependencies]
+python = "^3.12"
+Django = "^5.2.4"
+djangorestframework = "^3.16.0"
+django-extensions = "^4.1"
+django-debug-toolbar = "^5.2.0"
+psycopg2 = "^2.9"
 
 [tool.poetry.group.dev.dependencies]
 factory-boy = "^3.3.3"
