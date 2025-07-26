@@ -18,8 +18,13 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, re_path, include
 from rest_framework.authtoken.views import obtain_auth_token
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the Bookstore API!")
 
 urlpatterns = [
+    path("", home),
     path("__debug__/", include(debug_toolbar.urls)),
     path("admin/", admin.site.urls),
     re_path(r"^bookstore/(?P<version>(v1|v2))/", include([
