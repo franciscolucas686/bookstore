@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "0") == "1" # Set to "1" for True, "0" for False
 
 allowed_hosts_env = os.environ.get("DJANGO_ALLOWED_HOSTS", "")
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split() if allowed_hosts_env else []
+ALLOWED_HOSTS = allowed_hosts_env.split() if allowed_hosts_env else []
 
 STATIC_URL = '/static/'
 STATIC_ROOT =  os.path.join(BASE_DIR / "staticfiles")
